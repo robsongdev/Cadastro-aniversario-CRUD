@@ -1,0 +1,78 @@
+body{
+    background-color: #252B42;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+.main {
+    width: 38.125rem;
+    margin:3.125rem auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2.5rem 3.125rem;
+    box-sizing: border-box;
+}
+
+.titulo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #252B42;
+    text-align: center;
+}
+
+.form-field{
+    display: block;
+    background-color: #F9F9F9;
+    border: 1px solid #E6E6E6;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 0.6875rem 1.3125rem;
+    color: #737373;
+    width: 100%;
+}
+
+.form-label {
+    color: #252B42;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    margin-bottom: 0.625rem;
+
+}
+
+.botao {
+    background-color: #23A6F0;
+    border-radius: 5px;
+    border: none;
+    padding: 0.9375rem 2.5rem;
+    margin-top: 2.5rem;
+    box-sizing: border-box;
+    width: 100%;
+
+    color: #fff;
+    line-height: 1.375rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-align: center;
+
+    margin-bottom: 3.125rem;
+
+}
+
+.tabela {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid rgb(190,190,190);
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.pessoa-editar {
+    color: green;
+}
+
+.pessoa-excluir {
+    color: red;
+}
