@@ -4,13 +4,12 @@ const botao = document.querySelector("#botao");
 const tabela = document.querySelector(".js-tabela")
 
 
-
 const pessoas = JSON.parse(localStorage.getItem('pessoas')) || [];
 
 exibirDados();
 
 
- botao.addEventListener("click", (e)=>{
+botao.addEventListener("click", (e)=>{
     e.preventDefault();
     if(!nomeInput.validity.valid){
         alert('nome invalido')
@@ -21,15 +20,38 @@ exibirDados();
         // SALVANDO PESSOAS(OBJETO) NO LOCALSTORAGE 
         pessoas.push({nome: nomeInput.value, nascimento: dataInput.value})
         localStorage.setItem('pessoas', JSON.stringify(pessoas));
-
         
         resetarPagina();
-        
-    
-        
-        
+ 
     }
 })
+
+
+
+
+tabela.addEventListener("click", (e)=>{
+    e.preventDefault()
+  
+    if(e.target.parentNode.id){
+        const idNumber = parseInt(e.target.parentNode.id)
+        //ALTERAR DADOS
+        if(e.target.attributes.class.nodeValue == "pessoa-editar"){
+            console.log(`vamos editar o numero: ${pessoas[idNumber].nome}`)
+        }
+        // EXCLUIR DADOS
+        if(e.target.attributes.class.nodeValue == "pessoa-excluir"){
+            alert(`Dados do: ${ pessoas[idNumber].nome} foram excluidos`)
+            pessoas.splice(idNumber,1)
+            localStorage.setItem('pessoas', JSON.stringify(pessoas));
+            resetarPagina()
+        }
+
+    }
+    
+
+    
+})
+
 
 
 //FORMATANDO A DATA DE YYYY-MM-DD para DD/MM/YYYY
@@ -59,7 +81,7 @@ function exibirDados(){
         <tr>
             <td>${pessoas[i].nome}</td>
             <td>${getFormattedDate(pessoas[i].nascimento)}</td>
-            <td><a class="pessoa-editar" href="#">editar</a> <a class="pessoa-excluir" href="#">excluir</a></td>
+            <td id=${i} ><a class="pessoa-editar" href="#">editar</a> <a class="pessoa-excluir" href="#">excluir</a></td>
         </tr>
         `)
         
