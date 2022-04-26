@@ -1,24 +1,24 @@
 const nomeInput = document.querySelector("#name");
 const dataInput = document.querySelector("#birth-date");
 const botao = document.querySelector("#botao");
-const tabela = document.querySelector(".js-tabela")
-
+const tabela = document.querySelector(".js-tabela");
 
 const pessoas = JSON.parse(localStorage.getItem('pessoas')) || [];
 
 exibirDados();
 
 
+
 botao.addEventListener("click", (e)=>{
     e.preventDefault();
     if(!nomeInput.validity.valid){
-        alert('nome invalido')
+        alert('nome invalido');
     }if(!dataInput.validity.valid){
-        alert('Data invalida')
+        alert('Data invalida');
     }if(nomeInput.validity.valid && dataInput.validity.valid){
         
         // SALVANDO PESSOAS(OBJETO) NO LOCALSTORAGE 
-        pessoas.push({nome: nomeInput.value, nascimento: dataInput.value})
+        pessoas.push({nome: nomeInput.value, nascimento: dataInput.value});
         localStorage.setItem('pessoas', JSON.stringify(pessoas));
         
         resetarPagina();
@@ -30,20 +30,34 @@ botao.addEventListener("click", (e)=>{
 
 
 tabela.addEventListener("click", (e)=>{
-    e.preventDefault()
+    e.preventDefault();
   
     if(e.target.parentNode.id){
-        const idNumber = parseInt(e.target.parentNode.id)
+        const idNumber = parseInt(e.target.parentNode.id);
         //ALTERAR DADOS
         if(e.target.attributes.class.nodeValue == "pessoa-editar"){
-            console.log(`vamos editar o numero: ${pessoas[idNumber].nome}`)
+            if(nomeInput.value == "" || dataInput.value == ""){
+                alert("Insira os dados que deseja alterar");
+                nomeInput.focus();
+            }else {
+                if(!nomeInput.validity.valid){
+                    alert('nome invalido');
+                }if(!dataInput.validity.valid){
+                    alert('Data invalida');
+                }else {
+                    pessoas.splice(idNumber, 1, {nome: nomeInput.value, nascimento: dataInput.value});
+                    localStorage.setItem('pessoas', JSON.stringify(pessoas));
+                    resetarPagina();
+                }
+            }
+            
         }
         // EXCLUIR DADOS
         if(e.target.attributes.class.nodeValue == "pessoa-excluir"){
-            alert(`Dados do: ${ pessoas[idNumber].nome} foram excluidos`)
-            pessoas.splice(idNumber,1)
+            alert(`Dados do: ${ pessoas[idNumber].nome} foram excluidos`);
+            pessoas.splice(idNumber,1);
             localStorage.setItem('pessoas', JSON.stringify(pessoas));
-            resetarPagina()
+            resetarPagina();
         }
 
     }
@@ -62,7 +76,7 @@ function getFormattedDate(dateString) {
     var month = (1 + date.getMonth()).toString();
     month = month.length > 1 ? month : '0' + month;
   
-    var day = date.getDate().toString();
+    var day = (1 + date.getDate()).toString();
     day = day.length > 1 ? day : '0' + day;
     
     return day + '/' + month + '/' + year;
@@ -72,7 +86,7 @@ function getFormattedDate(dateString) {
 function resetarPagina(){
     nomeInput.value = "";
     dataInput.value = "";
-    window.location.reload()
+    window.location.reload();
 }
 
 function exibirDados(){
@@ -83,7 +97,7 @@ function exibirDados(){
             <td>${getFormattedDate(pessoas[i].nascimento)}</td>
             <td id=${i} ><a class="pessoa-editar" href="#">editar</a> <a class="pessoa-excluir" href="#">excluir</a></td>
         </tr>
-        `)
+        `);
         
     }
 }
