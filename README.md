@@ -1,5 +1,5 @@
 <img alt="icon" title="#icon" src="https://i.imgur.com/O14s0Df.png" width="100px" align = "left"> <br>
-<h1 align="center"> Alurakut </h1>
+<h1 align="center"> Cadastro de Aniversários</h1>
 
 <p align="center">Cadastro de nome e data de nascimento salvos em LocalStorage com as funções basicas de CRUD
   <br/>
