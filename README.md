@@ -28,7 +28,7 @@
 
 ## 💻 Sobre o Projeto
 
-  Criado no **#7DaysOfCode**, series de desafios para praticar seus conhecimento, proporcioando pela Alura;<br/>
+  Criado no **#7DaysOfCode**, series de desafios para praticar seus conhecimento, proporcionando pela Alura;<br/>
   Com o intuito de praticar o famoso DOM e CRUD surgiu o Cadastro de Aniversários, que Cria, Ler, Atualiza e Deletas os dados salvos localmente ;<br/>
   
 ---
