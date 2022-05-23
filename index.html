@@ -13,11 +13,11 @@
 </head>
 <body>
     <section class="main">
-        <h1 class="titulo">Cadastro de pessoas</h1>
+        <h1 class="titulo">Cadastro de Aniversário</h1>
         <form class="form js-form">
             <label for="name">
                 <span class="form-label">Nome</span>
-                <input class="form-field js-field" id="name" maxlength="120" minlength="3" pattern="([aA-zZ]+)" name="name" required type="text">
+                <input class="form-field js-field" id="name" maxlength="120" minlength="3" pattern="([aA-zZ\s]+)" name="name" required type="text">
             </label>
             <br>
             <label for="birth-date">
@@ -33,11 +33,7 @@
                 <th>Data de Nascimento</th>
                 <th>Ações</th>
             </tr>
-            <!-- <tr>
-                <td>testeNome</td>
-                <td>testeData</td>
-                <td><a class="pessoa-editar js-editar" href="#" >editar</a> <a class="pessoa-excluir js-excluir" href="#">excluir</a></td>
-            </tr> -->
+            
             
         </table>
     </section>
